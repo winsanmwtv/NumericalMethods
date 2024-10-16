@@ -40,8 +40,6 @@ int main() {
     double sum[n];
     for (int i = 1; i < n; i++) {
         sumM[i] = m(y[i], y[i-1], x[i], x[i-1]);
-        sum[i] = y[i-1]+sumM[i]*(xsum-x[i-1]);
-        // sumM[i] = y[i - 1] + (m(y[i], y[i-1], x[i], x[i-1]) * (xsum - x[i - 1]));
     }
 
     // find x in between
@@ -54,6 +52,6 @@ int main() {
     }
 
     // calculation
-    double finalSum = sum[xcal];
+    double finalSum = y[xcal-1]+sumM[xcal]*(xsum-x[xcal-1]);
     cout << "The answer is: " << finalSum << endl;
 }
